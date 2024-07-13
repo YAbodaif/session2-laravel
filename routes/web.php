@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SellerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -47,3 +48,23 @@ Route::get('categories/delete/{id}',[CategoryController::class,'delete'])->name(
 //update
 Route::get('categories/edit/{id}',[CategoryController::class,'edit'])->name('categories_edit');
 Route::post('categories/update/{id}',[CategoryController::class,'update'])->name('categories_update');
+
+//// seller route
+//show all
+Route::get('sellers/',[SellerController::class,'index'])->name('sellers_index');
+
+//show one
+Route::get('sellers/show/{id}',[SellerController::class,'show'])->name('sellers_show');
+
+//Add New
+Route::get('sellers/create',[SellerController::class,'create'])->name('sellers_create');
+Route::post('sellers/store',[SellerController::class,'store'])->name('sellers_store');
+
+
+//Delete
+Route::get('sellers/create/{id}',[SellerController::class,'delconfirm'])->name('sellers_delconfirm');
+Route::get('sellers/delete/{id}',[SellerController::class,'delete'])->name('sellers_delete');
+
+//update
+Route::get('sellers/edit/{id}',[SellerController::class,'edit'])->name('sellers_edit');
+Route::post('sellers/update/{id}',[SellerController::class,'update'])->name('sellers_update');
